@@ -3,12 +3,18 @@ import './App.css';
 import JSONDATA from './data/MOCK_DATA.json'
 import {useState} from 'react';
 
+import {
+  AppDiv,
+  AppInput,
+  AppPara
+} from '../styledComponent/AppStyled';
+
 function App() {
   const [searchTerm, setSearchTerm] = useState('')
 
   return (
-    <div className="App">
-      <input type="text" 
+    <AppDiv>
+      <AppInput type="text" 
              placeholder="Search..." 
              onChange={event => {
                 setSearchTerm(event.target.value)
@@ -26,11 +32,11 @@ function App() {
       }).map((val,key) => {
         return (
           <div className="animal" key={key}>
-            <p>{val.Name} </p>
+            <AppPara>{val.Name} </AppPara>
           </div>
         )
       })}
-    </div>
+    </AppDiv>
   );
 }
 
